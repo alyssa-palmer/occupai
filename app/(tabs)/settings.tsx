@@ -1,15 +1,10 @@
+import SettingsPanel from "@/components/settings/SettingsPanel";
 import { Text, View } from "react-native";
 
 export default function Settings() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Welcome to the Settings Screen!!!</Text>
+    <View>
+      <SettingsPanel />
     </View>
   );
 }
