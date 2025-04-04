@@ -1,7 +1,7 @@
 import { StyleSheet, View, Image } from "react-native";
 import { Button, Text, useTheme } from "react-native-paper";
 import { useRouter } from "expo-router";
-import GetStartedButton from "@/components/GetStartedButton";
+import GetStartedButton from "@/components/get-started/GetStartedButton";
 
 const StartPage = () => {
   const router = useRouter();
