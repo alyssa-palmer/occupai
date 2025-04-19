@@ -7,15 +7,15 @@ import { View } from "react-native";
 
 export default function Home() {
   const pCount = 3;
-  const adultDetected = false;
-  const childDetected = true;
+  const adultDetected = true;
+  const childDetected = false;
   const [envTitle, setEnvTitle] = useState<string>("Safe");
   const [envMessage, setEnvMessage] = useState<string>("Waiting for detection data...");
 
   useEffect(() => {
       if (!adultDetected && childDetected){
         setEnvTitle("Warning");
-        setEnvMessage("An unattended child is detected in the vehicle. Please make sure a responsible adutlt is present.");
+        setEnvMessage("An unattended child is detected in the vehicle. Please make sure a responsible adult is present.");
       }
       else {
         setEnvTitle("Safe");

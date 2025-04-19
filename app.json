@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/occupai-logo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alyssapalmer.occupai"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "99683764-cbbe-4aa8-9fa0-5de689dae5fe"
+      }
+    },
+    "owner": "alyssapalmer"
   }
 }
