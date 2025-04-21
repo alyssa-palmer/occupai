@@ -36,3 +36,7 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# firebase credentials
+occupai-40146-firebase-adminsdk-fbsvc-9460b775f0.json
+google-services.json

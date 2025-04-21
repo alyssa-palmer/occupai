@@ -5,6 +5,8 @@ import PresenceDisplay from "@/components/home/PresenceDisplay";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 
+
+
 export default function Home() {
   const pCount = 3;
   const adultDetected = true;
@@ -16,6 +18,7 @@ export default function Home() {
       if (!adultDetected && childDetected){
         setEnvTitle("Warning");
         setEnvMessage("An unattended child is detected in the vehicle. Please make sure a responsible adult is present.");
+        await sendPushNotification(expoPushToken);
       }
       else {
         setEnvTitle("Safe");
