@@ -4,25 +4,10 @@ import { TextInput, View, Text, StyleSheet, Alert } from "react-native";
 import { Button, useTheme } from "react-native-paper";
 import * as Yup from 'yup';
 import Constants from "expo-constants";
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, Auth } from "firebase/auth";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD3bLLVXWil-jeb7a7W_nETD0p1Qx2kW7s",
-    authDomain: "occupai-40146.firebaseapp.com",
-    projectId: "occupai-40146",
-    storageBucket: "occupai-40146.firebasestorage.app",
-    messagingSenderId: "414737502484",
-    appId: "1:414737502484:web:9b6445e5cff81926913201",
-    measurementId: "G-ZM63E5SZ67"
-};
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebaseConfig";
 
 const SignInForm = () => {
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
 
     const colors = useTheme().colors;
 

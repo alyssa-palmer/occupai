@@ -3,12 +3,11 @@ import { Formik } from "formik";
 import { TextInput, View, Text, StyleSheet, Alert } from "react-native";
 import { Button, useTheme } from "react-native-paper";
 import * as Yup from 'yup';
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore"; 
 import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
+import { auth, db } from "@/lib/firebaseConfig";
 
 async function registerForPushNotificationsAsync() {
     let token;
@@ -36,22 +35,7 @@ async function registerForPushNotificationsAsync() {
     return token;
   }
 
-const firebaseConfig = {
-    apiKey: "AIzaSyD3bLLVXWil-jeb7a7W_nETD0p1Qx2kW7s",
-    authDomain: "occupai-40146.firebaseapp.com",
-    projectId: "occupai-40146",
-    storageBucket: "occupai-40146.firebasestorage.app",
-    messagingSenderId: "414737502484",
-    appId: "1:414737502484:web:9b6445e5cff81926913201",
-    measurementId: "G-ZM63E5SZ67"
-};
-
-
 const SignUpForm = () => {
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
     const colors = useTheme().colors;
 
     async function signUpUser(user_email: string, password: string) {
