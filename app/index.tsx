@@ -1,6 +1,7 @@
 import { StyleSheet, View, Image } from "react-native";
 import { Button, Text, useTheme } from "react-native-paper";
 import { useRouter } from "expo-router";
+import SignInForm from "@/components/get-started/SignInForm";
 import GetStartedButton from "@/components/get-started/GetStartedButton";
 
 const StartPage = () => {
@@ -12,12 +13,14 @@ const StartPage = () => {
       marginTop: 5,
       alignItems: "center",
       justifyContent: "center",
+      flex: 1
     },
     main_logo: {
-      marginTop: 100,
+      marginTop: 25,
       width: 200,
-      height: 250,
+      height: 200,
       marginBottom: 50,
+      resizeMode: 'contain'
     },
     title: {
       marginTop: 1,
@@ -33,8 +36,8 @@ const StartPage = () => {
     },
     company_logo: {
       marginTop: 150,
-      width: 320,
-      height: 50,
+      width: 200,
+      height: 100,
       resizeMode: "contain",
       bottom: 1,
     },
@@ -67,7 +70,7 @@ const StartPage = () => {
       {/* Get Started Button */}
       <GetStartedButton />
 
-      {/* Product Logo */}
+      {/* Company Logo */}
       <Image source={require("../assets/images/safehorizon-logo.png")} style={styles.company_logo} />
     </View>
   );

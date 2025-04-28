@@ -52,7 +52,7 @@ const GetStartedButton = () => {
     <Pressable
       onPressIn={handlePress}
       onPressOut={handleRelease}
-      onPress={() => router.navigate("/(tabs)/home")}
+      onPress={() => router.navigate("./login")}
     >
       <Animated.View style={[styles.buttonContainer, { borderColor }]}>
         <Text style={styles.buttonText}>Get Started</Text>
