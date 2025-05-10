@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/occupai-logo.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.alyssapalmer.occupai"
+      "package": "com.alyssapalmer.occupai",
+      "permissions": ["NOTIFICATIONS"]
     },
     "web": {
       "bundler": "metro",

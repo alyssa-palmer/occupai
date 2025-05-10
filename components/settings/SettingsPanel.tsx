@@ -1,10 +1,9 @@
-import { View, Text, StyleSheet, Alert } from "react-native"
+import { Text, StyleSheet, Alert } from "react-native"
 import { Button, useTheme, Card } from "react-native-paper"
-import Slider from "./Slider";
 import { auth } from "@/lib/firebaseConfig";
 import { signOut } from "firebase/auth";
 import { router } from "expo-router";
-import CardContent from "react-native-paper/lib/typescript/components/Card/CardContent";
+
 
 
 const SettingsPanel = () => {

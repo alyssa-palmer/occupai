@@ -1,11 +1,17 @@
-import { StyleSheet, View, Image } from "react-native";
-import { Button, Text, useTheme } from "react-native-paper";
-import { useRouter } from "expo-router";
-import SignInForm from "@/components/get-started/SignInForm";
+import { StyleSheet, View, Image, Platform } from "react-native";
+import { Text, useTheme } from "react-native-paper";
 import GetStartedButton from "@/components/get-started/GetStartedButton";
+import * as Notifications from 'expo-notifications';
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
 
 const StartPage = () => {
-  const router = useRouter();
   const { colors } = useTheme(); // Use theme colors
 
   const styles = StyleSheet.create({

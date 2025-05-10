@@ -3,24 +3,31 @@ import EnvWarn from "@/components/home/EnvWarn";
 import PassengerCounter from "@/components/home/PassengerCounter";
 import PresenceDisplay from "@/components/home/PresenceDisplay";
 import { useEffect, useRef, useState } from "react";
+import { doc, getDoc, onSnapshot } from "firebase/firestore"; 
+import { auth, db } from "@/lib/firebaseConfig";
 import { Platform, View } from "react-native";
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants';
 
-export default function Home() {
 
-  const pCount = 3;
-  const [adultDetected, setAdultDetected] = useState<boolean>(true);
-  const [childDetected, setChildDetected] = useState<boolean>(true);
+export default function Home() {
+  const userId = auth.currentUser?.uid;
+  const [pCount, setPCount] = useState<number>(0);
+  const [adultDetected, setAdultDetected] = useState<boolean>(false);
+  const [childDetected, setChildDetected] = useState<boolean>(false);
   const [envTitle, setEnvTitle] = useState<string>("Safe");
   const [envMessage, setEnvMessage] = useState<string>("Waiting for detection data...");
-
-  useEffect(() => {
-    setAdultDetected(true);
-    setChildDetected(true);
-  }, []);
   
+  const unsub = onSnapshot(doc(db, "detections", userId!), (doc) => {
+    const userData = doc.data();
+    if (userData) {
+      setAdultDetected(userData.adultDetected);
+      setChildDetected(userData.childDetected);
+      setPCount(userData.totalPassengers);
+    }
+    
+  });
 
   useEffect(() => {
       if (!adultDetected && childDetected){
